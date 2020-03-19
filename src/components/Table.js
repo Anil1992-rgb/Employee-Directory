@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from "react";
-import TableRows from "./TableRows"
+import TableRows from "./TableRows";
 import axios from "axios";
+import API from "../utils/API";
 
 function Table() {
 
     const [employees, setEmployees] = useState([]);
 
     useEffect(() => {
-        axios.get(
-            "http://localhost:4000/api/?results=200&nat=us"
-        )
+        API.getEmployee()
         .then(function(res) {
             console.log(res);
             setEmployees(res.data.results);
         })
-    })
+    },[])
 
     
-
 
 
     return (
@@ -34,7 +32,12 @@ function Table() {
                     </tr>
                 </thead>
                 <tbody>
-
+                    {employees.map(employee => <TableRows image={employee.picture.thumbnail} 
+                    name={`${employee.name.first} ${employee.name.last}`}
+                    phone={employee.phone}
+                    email={employee.email}
+                    dob={employee.dob.date}
+                    />)}
                 </tbody>
             </table>
         </div>
