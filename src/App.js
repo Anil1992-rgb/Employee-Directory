@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { Component } from "react";
 import './App.css';
 import Table from "./components/Table"
 import Header from "./components/Header"
 import Search from "./components/Search"
 
-function App() {
-  return (
-    <div className="App">
-    <Header/>
-    <Search/>
-    <Table/>
-    </div>
-  );
+class App extends Component {
+  state = {
+    search: "",
+    results: []
+  };
+
+  completeSearch = (event) => {
+    event.preventDefault();
+
+    const name = event.target.name;
+    const value = event.target.value;
+
+    this.setState({
+      [name]: value
+    });
+  };
+  
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Search handleSearch={this.completeSearch} />
+        <Table searchTerm = {this.state.search} />
+      </div>
+    );
+  }
 }
 
 export default App;

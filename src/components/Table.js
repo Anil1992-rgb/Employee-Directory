@@ -2,20 +2,31 @@ import React, { useState, useEffect } from "react";
 import TableRows from "./TableRows";
 import API from "../utils/API";
 
-function Table() {
+function Table(props) {
 
     const [employees, setEmployees] = useState([]);
 
     const [sorted, setSorted] = useState(false);
 
-    //getting the employees array 
     useEffect(() => {
-        API.getEmployee()
-            .then(function (res) {
-                console.log(res);
-                setEmployees(res.data.results);
+        if (props.searchTerm || employees.length > 0) {
+            const filteredEmployees = employees.filter(employee => {
+                if (employee.name.first.toLowerCase().includes(props.searchTerm.toLowerCase())) {
+                    return true;
+                } else {
+                    return false;
+                }
+
             })
-    }, [])
+            setEmployees(filteredEmployees)
+        } else {
+            API.getEmployee()
+                .then(function (res) {
+                    console.log(res);
+                    setEmployees(res.data.results);
+                })
+        }
+    }, [props.searchTerm])
 
     //function for onClick on Name to ascend or descend 
     const handleName = () => {
@@ -29,7 +40,7 @@ function Table() {
             let employeesCopyReversed = employees.slice().reverse()
             setEmployees(employeesCopyReversed);
         }
-        
+
     }
 
     //compare function for employees, and called above for handleName()
