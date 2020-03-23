@@ -13,7 +13,7 @@ The user will be able to:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Example profile](./Screenshot.png)
+![Example profile](./ScreenShot.png)
 
 ## Technology
 
