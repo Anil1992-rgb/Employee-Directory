@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TableRows from "./TableRows";
 import API from "../utils/API";
+import './Table.css';
 
 function Table(props) {
 
@@ -65,7 +66,7 @@ function Table(props) {
                 <thead>
                     <tr>
                         <th scope="col">Image</th>
-                        <th onClick={handleName} scope="col">Name</th>
+                        <th id="name" onClick={handleName} scope="col">Name</th>
                         <th scope="col">Phone #</th>
                         <th scope="col">Email</th>
                         <th scope="col">DOB</th>

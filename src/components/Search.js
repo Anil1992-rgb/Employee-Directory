@@ -8,9 +8,6 @@ function Search(props) {
             <form>
                 Search:&nbsp; 
                 <input type="text" placeholder="Name" name="search" onChange={e => props.handleSearch(e)}></input>
-                <button type="submit">
-                    <i className="fa fa-search"></i>
-                </button>
             </form>
         </div>
     )

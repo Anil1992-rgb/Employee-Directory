@@ -1,0 +1,12 @@
+#name {
+    cursor: pointer;   
+}
+
+#name:hover {
+    background-color: lightgray;
+}
+
+th {
+    border-right: 1px solid lightgray;
+
+}
