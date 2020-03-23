@@ -6,7 +6,7 @@ function Search(props) {
         <div className="container">
             <br></br>
             <form>
-                Search:&nbsp; 
+                Filter: &nbsp; 
                 <input type="text" placeholder="Name" name="search" onChange={e => props.handleSearch(e)}></input>
             </form>
         </div>
