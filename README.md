@@ -45,4 +45,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Deployment
 
-The app is currently deployed via Heroku here: 
+The app is currently deployed via Heroku here: https://burakstaffdirectory.herokuapp.com/
