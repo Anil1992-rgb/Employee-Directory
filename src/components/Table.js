@@ -73,7 +73,7 @@ function Table(props) {
                         <th id="name" onClick={handleName} scope="col">Name</th>
                         <th scope="col">Phone #</th>
                         <th scope="col">Email</th>
-                        <th scope="col">DOB</th>
+                        <th id="dob" scope="col">DOB</th>
                     </tr>
                 </thead>
                 <tbody>

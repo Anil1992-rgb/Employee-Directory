@@ -1,5 +1,7 @@
 #name {
     cursor: pointer;   
+    color: gold;
+    text-shadow: 0 0 3px black, 0 0 5px black
 }
 
 #name:hover {
@@ -8,5 +10,10 @@
 
 th {
     border-right: 1px solid lightgray;
+    background-color: rgb(236, 236, 236);
 
+}
+
+#dob {
+    border-right: none;
 }
