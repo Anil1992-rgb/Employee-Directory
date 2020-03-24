@@ -7,7 +7,8 @@ import Search from "./components/Search"
 class App extends Component {
   state = {
     search: "",
-    results: []
+    results: [],
+    filteredResults: []
   };
 
   completeSearch = (event) => {

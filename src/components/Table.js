@@ -7,19 +7,22 @@ function Table(props) {
 
     const [employees, setEmployees] = useState([]);
 
+    const [filteredEmployees, setFilteredEmployees] = useState([]);
+
     const [sorted, setSorted] = useState(false);
 
     useEffect(() => {
-        if (props.searchTerm || employees.length > 0) {
-            const filteredEmployees = employees.filter(employee => {
-                if (employee.name.first.toLowerCase().includes(props.searchTerm.toLowerCase())) {
+        if (employees.length > 0) {
+
+            const searchedEmployees = employees.filter(employee => {
+                if (props.searchTerm === "" || employee.name.first.toLowerCase().includes(props.searchTerm.toLowerCase())) {
                     return true;
                 } else {
                     return false;
                 }
 
             })
-            setEmployees(filteredEmployees)
+            setFilteredEmployees(searchedEmployees)
         } else {
             API.getEmployee()
                 .then(function (res) {
@@ -58,6 +61,7 @@ function Table(props) {
         return comparison;
     }
 
+    const employeeList = props.searchTerm ? filteredEmployees : employees
 
     return (
         <div className="container">
@@ -73,7 +77,7 @@ function Table(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {employees.map(employee => <TableRows image={employee.picture.thumbnail}
+                    {employeeList.map(employee => <TableRows image={employee.picture.thumbnail}
                         name={`${employee.name.first} ${employee.name.last}`}
                         phone={employee.phone}
                         email={employee.email}
